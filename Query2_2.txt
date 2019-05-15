@@ -1,0 +1,8 @@
+SELECT
+	duration
+FROM
+	trips
+GROUP BY
+	duration
+ORDER BY
+	duration

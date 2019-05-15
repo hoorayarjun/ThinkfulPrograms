@@ -1,0 +1,6 @@
+SELECT
+	end_station,
+	AVG(duration) as Duration
+FROM
+	trips
+GROUP BY 1;
