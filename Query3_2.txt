@@ -1,0 +1,9 @@
+SELECT
+	station_id,
+	SUM((CASE WHEN docks_available = 0 THEN 1 ELSE 0 END)) full_count
+FROM
+	status
+GROUP BY
+	station_id
+ORDER BY
+	full_count DESC

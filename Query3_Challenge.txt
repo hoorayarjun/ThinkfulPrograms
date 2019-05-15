@@ -1,0 +1,32 @@
+WITH
+	cte1
+AS(
+SELECT
+	CAST(CAST(start_date as DATE) as text) date,
+	MAX(duration) max_duration
+FROM
+	trips
+GROUP BY
+	date
+),
+	cte2
+AS(
+SELECT
+	date,
+	MAX((CASE WHEN precipitationin > 0 THEN 1 ELSE 0 END)) is_raining
+FROM
+	weather w
+GROUP BY
+	date
+)
+SELECT
+	*
+FROM
+	cte1
+JOIN
+	cte2
+ON
+	cte1.date = cte2.date
+ORDER BY
+	is_raining DESC,
+	max_duration DESC

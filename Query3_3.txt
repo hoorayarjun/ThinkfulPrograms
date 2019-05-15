@@ -1,0 +1,21 @@
+WITH
+	trip_count_by_station
+AS(
+SELECT
+	start_station,
+	COUNT(*) as trip_count
+FROM
+	trips
+GROUP BY
+	start_station
+)
+SELECT
+	*
+FROM
+	stations
+JOIN
+	trip_count_by_station t
+ON
+	stations.name = t.start_station
+ORDER BY
+	dockcount

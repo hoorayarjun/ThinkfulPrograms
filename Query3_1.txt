@@ -1,0 +1,32 @@
+WITH
+	longest_trips
+AS (
+SELECT
+	CAST(CAST(start_date AS DATE) AS text),
+	MAX(duration) as max_duration
+FROM
+	trips
+GROUP BY
+	CAST(start_date AS DATE)
+),
+rainy_days
+AS (
+SELECT
+	date,
+	MAX((CASE WHEN precipitationin > 0 THEN 1 ELSE 0 END)) raining
+FROM
+	weather
+GROUP BY
+	date
+)
+SELECT
+	*
+FROM
+	rainy_days
+JOIN
+	longest_trips
+ON
+	rainy_days.date = longest_trips.start_date
+ORDER BY
+	raining DESC,
+	max_duration DESC
