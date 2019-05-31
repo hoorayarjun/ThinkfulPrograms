@@ -1,0 +1,10 @@
+SELECT
+	neighbourhood,
+	AVG(price) average_cost,
+	COUNT(*)
+FROM
+	sfo_listings
+GROUP BY
+	neighbourhood
+ORDER BY
+	count DESC

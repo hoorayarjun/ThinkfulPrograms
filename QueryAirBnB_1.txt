@@ -1,0 +1,15 @@
+WITH
+	ordered
+AS(
+SELECT
+	*
+FROM
+	sfo_listings
+ORDER BY
+	price DESC
+)
+SELECT
+	*
+FROM
+	ordered
+LIMIT 1
