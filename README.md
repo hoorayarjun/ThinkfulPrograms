@@ -1,6 +1,2 @@
 # ThinkfulPrograms
-# ThinkfulPrograms
-# ThinkfulPrograms
-# ThinkfulPrograms
-# ThinkfulPrograms
-# ThinkfulPrograms
+# Programs written for Thinkful Data Science Bootcamp assignments and capstones
